@@ -1,2 +1,2 @@
-# infrastructure
-The Repo Contains all the infrastructure related Stuff e.g. Dockerfiles, K8s etc
+# Infrastructure
+The Repo Contains all the infrastructure related Stuff e.g. Dockerfiles, K8s scripts etc
