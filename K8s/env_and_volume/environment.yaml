@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config_map_name # Update
+data:
+  lable_1: 'value' # Update both key and value
+  # key: value..

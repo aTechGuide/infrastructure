@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-name # Update
+spec:
+  capacity: 
+    storage: 1Gi # Overall Available Capacity
+  volumeMode: Filesystem # Another Option "Block"
+  storageClassName: standard
+  accessModes:
+    - ReadWriteOnce # ReadWriteOnce (Can be mounted as READ Write Volume by Single Node) ReadOnlyMany (READ Only, Claimed by Multiple Nodes) ReadWriteMany (READ Write, Claimed by Multiple Nodes)
+  hostPath: # Works Only in case of 1 Node Cluster
+    path: /data
+    type: DirectoryOrCreate

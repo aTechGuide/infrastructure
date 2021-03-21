@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment_name # Update
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: label_1 # Update
+  template:
+    metadata:
+      labels:
+        app: label_1 # Update
+    spec:
+      containers:
+        - name: container_name # Update
+          image: image_url # Update
+          env:
+            - name: ENV_VARIABLE_NAME # ENV_VARIABLE_NAME is used inside the app as environment Variable
+              # value: 'abc'  # Option 1: To supply value to environment variable ENV_VARIABLE_NAME
+              valueFrom:      # Option 2: To supply value to environment variable ENV_VARIABLE_NAME via Config Map
+                configMapKeyRef:
+                  name: config_map_name # Value of metadata.name inside ConfigMap Object
+                  key: lable_1 # name of a key inside 'data' of ConfigMap Object
+          volumeMounts:
+            - mountPath: path_inside_container # Update
+              name: volume_name # Update
+      volumes: # Volume available to all the containers
+        - name: volume_name # Update
+          # emptyDir: {} # Option 1: As long as the POD is alive this directory stays. New Empty dir per POD
+          # hostPath:    # Option 2
+          #   path: /data # Path on the host machine
+          #   type: DirectoryOrCreate
+          persistentVolumeClaim: # Option 3: Persistent Volume Claim 
+            claimName: claim_name-pvc # Update
