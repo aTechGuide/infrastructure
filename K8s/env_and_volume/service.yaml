@@ -5,7 +5,7 @@ metadata:
 spec:
   selector: 
     app: label_1 # Update
-  type: LoadBalancer
+  type: LoadBalancer # ClusterIPs
   ports:
     - protocol: "TCP"
       port: 80

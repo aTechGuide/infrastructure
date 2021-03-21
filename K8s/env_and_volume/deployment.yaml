@@ -22,6 +22,8 @@ spec:
                 configMapKeyRef:
                   name: config_map_name # Value of metadata.name inside ConfigMap Object
                   key: lable_1 # name of a key inside 'data' of ConfigMap Object
+            - name: DOWNSTREAM_SERVICE_URL
+              value: "service-name.namespace" # The service 'service-name' is exposed as ClusterIP
           volumeMounts:
             - mountPath: path_inside_container # Update
               name: volume_name # Update
