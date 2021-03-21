@@ -9,8 +9,8 @@ spec:
     app: label_1 # Update
   ports:
     - protocol: 'TCP'
-      port: 80
-      targetPort: 8080
+      port: 80 # Outside Port
+      targetPort: 8080 # Post inside Container
     # - protocol: 'TCP'
     #   port: 443
     #   targetPort: 443
