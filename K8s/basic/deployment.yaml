@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment_name # Update
+  labels:
+    group: group_name # Update
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: label_1 # Update
+      tier: label_2 # Update
+    # matchExpressions: 
+    #   - {key: app, operator: NotIn, values: [second-app, first-app]}
+  template:
+    metadata: 
+      labels:
+        app: label_1 # Update
+        tier: label_2 # Update
+    spec: 
+      containers:
+        - name: container_name # Update
+          image: image_url # Update
+          imagePullPolicy: Always
+          livenessProbe: 
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5
+        # - name: ...
+        #   image: ...
